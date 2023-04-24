@@ -6,16 +6,9 @@ url = 'https://www.cbssports.com/nfl/stats/'
 response = requests.get(url)
 soup = BeautifulSoup(response.text, 'html.parser')
 
-touchdowns_link = soup.find('a', {'href': '/nfl/stats/playersort/nfl/year-2023-season-regular-category-touchdowns'}) # find the link to the touchdowns page
-touchdowns_url = 'https://www.cbssports.com' + touchdowns_link['href']
-
-response = requests.get(touchdowns_url)
-soup = BeautifulSoup(response.text, 'html.parser')
-
-table = soup.find('table', {'class': 'data'}) # find the table with class 'data'
-tbody = table.find('tbody') # find the table body
-rows = tbody.find_all('tr') # find all table rows
-
+table = soup.find('table', {'class': 'data'}) 
+tbody = table.find('tbody') 
+rows = tbody.find_all('tr') 
 print('Top 20 players with the highest number of touchdowns:\n')
 
 for row in rows[:20]:
