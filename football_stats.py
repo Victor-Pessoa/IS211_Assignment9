@@ -6,7 +6,7 @@ url = 'https://www.cbssports.com/nfl/stats/'
 response = requests.get(url)
 soup = BeautifulSoup(response.text, 'html.parser')
 
-touchdowns_link = soup.find('a', {'href': '/nfl/stats/playersort/nfl/year-2021-season-regular-category-touchdowns'}) # find the link to the touchdowns page
+touchdowns_link = soup.find('a', {'href': '/nfl/stats/playersort/nfl/year-2023-season-regular-category-touchdowns'}) # find the link to the touchdowns page
 touchdowns_url = 'https://www.cbssports.com' + touchdowns_link['href']
 
 response = requests.get(touchdowns_url)
