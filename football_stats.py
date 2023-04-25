@@ -6,7 +6,8 @@ url = 'https://www.cbssports.com/nfl/stats/'
 response = requests.get(url)
 soup = BeautifulSoup(response.text, 'html.parser')
 
-table = soup.find('table', {'class': 'data'}) 
+container = soup.find('div', {'class': 'StatsTables'}) 
+table = container.find('table') 
 tbody = table.find('tbody') 
 rows = tbody.find_all('tr') 
 
